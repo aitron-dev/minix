@@ -1,0 +1,11 @@
+--- ../ValueMap.h	2019-10-15 00:33:59.827939412 +0300
++++ external/bsd/llvm/dist/llvm/include/llvm/IR/ValueMap.h	2019-10-03 23:33:23.480500130 +0300
+@@ -101,7 +101,7 @@
+ 
+   ~ValueMap() {}
+ 
+-  bool hasMD() const { return MDMap; }
++  bool hasMD() const { return static_cast<bool>(MDMap); }
+   MDMapT &MD() {
+     if (!MDMap)
+       MDMap.reset(new MDMapT);
